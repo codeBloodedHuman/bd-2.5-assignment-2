@@ -181,12 +181,11 @@ function sortByPricingDesc(stock1, stock2) {
 app.get('/stocks/sort/pricing', (req, res) => {
   let pricing = req.query.pricing;
   let sortedStocks = stocks.slice();
-  if(pricing == "low-to-high"){
+  if(pricing === 'low-to-high'){
     sortedStocks.sort(sortByPricingAsc);
   }else{
     sortedStocks.sort(sortByPricingDesc);
   }
-  sortedStocks.sort(sortByPricing);
   res.json({ stocks: sortedStocks });
 });
 
